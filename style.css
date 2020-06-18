@@ -1,14 +1,15 @@
-body{
+body {
     background-color: #e3e5e5;
 }
 
-.nav-extended{
+.nav-extended {
     background-image: url("imagens/capa.jpg");
     background-size: cover;
-    background-blend-mode: soft-light; /*Cor Sobre a Imagem com Efeito soft-light*/
-} 
+    background-blend-mode: soft-light;/*Cor Sobre a Imagem com Efeito soft-light*/
+}
 
-nav ul li.active, .tab a.active{
+nav ul li.active,
+.tab a.active {
     border-bottom: solid 2px #FFF;
     background-color: transparent;
 }

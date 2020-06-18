@@ -21,9 +21,8 @@ if ($bd->exec($sql))
 else
     echo "\nerro ao criar tabela filmes\n";
 
-$sql = "INSERT INTO filmes (id, titulo, poster, sinopse, nota) VALUES(
-    0,
-    'Vingaores',
+$sql = "INSERT INTO filmes (titulo, poster, sinopse, nota) VALUES(
+    'Vingadores',
     'https://image.tmdb.org/t/p/w300/q6725aR8Zs4IwGMXzZT8aC8lh41.jpg',
     'Após os eventos devastadores de Vingadores: Guerra Infinita, o universo está em ruínas devido aos esforços 
     do Titã Louco, Thanos. Com a ajuda de aliados remanescentes, não importando as consequências.',
@@ -35,8 +34,7 @@ if ($bd->exec($sql))
 else
     echo "\nerro ao inserir filmes\n";
 
-$sql = "INSERT INTO filmes (id, titulo, poster, sinopse, nota) VALUES(
-    1,
+$sql = "INSERT INTO filmes (titulo, poster, sinopse, nota) VALUES(
     'Liga da Justiça Sombria: Guerra de Apokolip',
     'https://image.tmdb.org/t/p/w300/18iq63BiWzdY529vGDeGVUpcSWT.jpg',
     'Na trama, Batman reunia um grupo de heróis mágicos para lidar com ameaças sobrenaturais. Entre a galeria de heróis da Liga da Justiça 

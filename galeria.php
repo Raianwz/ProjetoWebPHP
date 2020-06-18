@@ -5,41 +5,7 @@
 $bd = new SQLite3("filmes.db");
 $sql = "SELECT * FROM filmes";
 $filmes = $bd->query($sql);
-
-
-$filme1 = [
-    "titulo" => "Vingaores: Ultimato",
-    "nota" => 8.6,
-    "sinopse" => "Após os eventos devastadores de Vingadores: Guerra Infinita, o universo está em ruínas devido aos esforços 
-    do Titã Louco, Thanos. Com a ajuda de aliados remanescentes, não importando as consequências.",
-    "poster" => "https://image.tmdb.org/t/p/w300/q6725aR8Zs4IwGMXzZT8aC8lh41.jpg",
-];
-
-$filme2 = [
-    "titulo" => "AD Astra",
-    "nota" => 6.6,
-    "sinopse" => "Roy McBride é um engenheiro espacial, que decide empreender a maior jornada de sua vida: viajar para o espaço, um astronauta que se perdeu há vinte anos atrás no caminho para Netuno.",
-    "poster" => "https://image.tmdb.org/t/p/w300/wigZBAmNrIhxp2FNGOROUAeHvdh.jpg",
-];
-
-$filme3 = [
-    "titulo" => "Star Wars: Episódio IX – A Ascensão Skywalker",
-    "nota" => 6.7,
-    "sinopse" => "Com o retorno do Imperador Palpatine, a Resistência toma a frente da batalha que ditará os rumos da galáxia. Treinando para ser uma completa Jedi, Rey ainda se encontra em conflito com seu passado e futuro, mas teme pelas respostas que pode conseguir a partir de sua complexa ligação com Kylo Ren, que também se encontra em conflito pela Força.",
-    "poster" => "https://image.tmdb.org/t/p/w300/lFx2i2pg1BoaD7grcpGDyHM1eML.jpg",
-];
-
-$filme4 = [
-    "titulo" => "Liga da Justiça Sombria: Guerra de Apokolip",
-    "nota" => 7.9,
-    "sinopse" => "Na trama, Batman reunia um grupo de heróis mágicos para lidar com ameaças sobrenaturais. Entre a galeria de heróis da Liga da Justiça Sombria, temos Constantine, Monstro do Pântano, Zatanna, Etrigan, entre outros. É aguardado a aparição de alguns personagens como Darkseid, as Fúrias e até mesmo o Pai Celestial.",
-    "poster" => "https://image.tmdb.org/t/p/w300/18iq63BiWzdY529vGDeGVUpcSWT.jpg",
-];
-
-
-// $filmes = [$filme1, $filme2, $filme3, $filme4]
 ?>
-
 <body>
     <nav class="nav-extended purple lighten-3">
         <div class="nav-wrapper">
@@ -59,11 +25,11 @@ $filme4 = [
             </ul>
         </div>
     </nav>
-
+    <div class="container">
     <div class="row">
         <!-- Coluna Geral -->
         <?php while($filme = $filmes->fetchArray()) :  ?>
-            <div class="col s3">
+            <div class="col s12 m6 l3">
                 <div class="card hoverable">
                     <div class="card-image">
                         <img src="<?= $filme["poster"] ?>">
@@ -83,7 +49,14 @@ $filme4 = [
 
         <!--- Fim da Coluna Geral -->
     </div>
-
+    </div>
 </body>
+<?php if(isset($_GET["msg"])) : ?>
+    <script>
+        M.toast({
+            html: '<?= $_GET["msg"]?>'
+        });
+    </script>
+<?php endif ?>
 
 </html>
