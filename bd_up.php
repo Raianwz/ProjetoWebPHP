@@ -35,7 +35,7 @@ else
     echo "\nerro ao inserir filmes\n";
 
 $sql = "INSERT INTO filmes (titulo, poster, sinopse, nota) VALUES(
-    'Liga da Justiça Sombria: Guerra de Apokolip',
+    'Liga da Justiça Sombria: Guerra de Apokolips',
     'https://image.tmdb.org/t/p/w300/18iq63BiWzdY529vGDeGVUpcSWT.jpg',
     'Na trama, Batman reunia um grupo de heróis mágicos para lidar com ameaças sobrenaturais. Entre a galeria de heróis da Liga da Justiça 
     Sombria, temos Constantine, Monstro do Pântano, Zatanna, Etrigan, entre outros. É aguardado a aparição de alguns personagens como Darkseid, as Fúrias e até mesmo o Pai Celestial.',

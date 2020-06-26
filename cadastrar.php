@@ -4,8 +4,8 @@
     <nav class="nav-extended purple lighten-3">
         <div class="nav-wrapper">
             <ul id="nav-mobile" class="right">
-                <li><a href="galeria.php">Galeria</a></li>
-                <li class="active"><a href="cadastrar.php">Cadastrar</a></li>
+                <li><a href="/">Galeria</a></li>
+                <li class="active"><a href="/novo">Cadastrar</a></li>
             </ul>
         </div>
         <div class="nav-header center">
@@ -21,7 +21,7 @@
     </nav>
 
     <div class="row">
-    <form action="inserirFilme.php" method="POST">
+    <form method="POST">
 
         <div class="col s6 offset-s3">
             <div class="card">
@@ -65,7 +65,7 @@
                         </div>
                 </div>
                 <div class="card-action">
-                    <a class="btn waves-effect waves-light grey" href="galeria.php">Cancelar</a>
+                    <a class="btn waves-effect waves-light grey" href="/">Cancelar</a>
                     <button type="submit" href="#" class="waves-effect waves-light btn purple">Confirmar</button>
                 </div>
             </div>

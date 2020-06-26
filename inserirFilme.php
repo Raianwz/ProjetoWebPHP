@@ -1,26 +1,22 @@
 <?php   
-$bd = new SQLite3("filmes.db");
-
-$titulo         = $bd->escapeString($_POST["titulo"]);
-$sinopse        = $bd->escapeString($_POST["sinopse"]);
-$nota           = $bd->escapeString($_POST["nota"]);
-$poster         = $bd->escapeString($_POST["poster"]);
 
 
-$sql = "INSERT INTO filmes (titulo, poster, sinopse, nota) 
-    VALUES(:titulo, :poster, :sinopse, :nota)";    
+session_start();
+require "./repository/FilmesRepositoryPDO.php";
+require "./model/Filme.php";
+$filmesRepository = new FilmesRepositoryPDO();
+$filme= new Filme();
 
-$stmt = $bd->prepare($sql);
-$stmt->bindValue(':titulo', $titulo, SQLITE3_TEXT);
-$stmt->bindValue(':sinopse', $sinope, SQLITE3_TEXT);
-$stmt->bindValue(':nota', $nota, SQLITE3_FLOAT);
-$stmt->bindValue(':poster', $poster, SQLITE3_TEXT);
+$filme->titulo         = ($_POST["titulo"]);
+$filme->sinopse        = ($_POST["sinopse"]);
+$filme->nota           = ($_POST["nota"]);
+$filme->poster         = ($_POST["poster"]);
 
 
-if ($stmt->execute()) 
-    echo "\nfilme inseridos com sucesso\n"; 
+if ($filmesRepository->salvar($filme)) 
+    $_SESSION["msg"] = "Filme cadastrado com sucesso";
 else
-echo "\nerro ao inserir filme ".$bd->lastErrorMsg();
+    $_SESSION["msg"] = "Erro ao cadastrar filme";
  
-header("Location: galeria.php?msg=Filme+cadastrado+com+sucesso");
+header("Location: /");
  ?>
