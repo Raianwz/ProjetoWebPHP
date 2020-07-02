@@ -1,13 +1,10 @@
 <?php include "cabecalho.php" ?>
 <?php
-
-session_start();
-
-require "./repository/FilmesRepositoryPDO.php";
+//session_start();
 require "./util/Mensagem.php";
 
-$filmesRespository =  new FilmesRepositoryPDO();
-$filmes = $filmesRespository->listarTodos();
+$controller = new FilmesController();
+$filmes = $controller->index();
 ?>
 <body>
     <nav class="nav-extended purple lighten-3">
