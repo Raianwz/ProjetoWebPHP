@@ -4,6 +4,7 @@
 session_start();
 require "./repository/FilmesRepositoryPDO.php";
 require "./model/Filme.php";
+require "./util/SimpleImage.php";
 
 class FilmesController
 {
@@ -37,10 +38,11 @@ class FilmesController
         $posterDir = "imagens/posters/";
         $posterPath = $posterDir . basename($file["poster_file"]["name"]);
         $posterTmp = $file["poster_file"]["tmp_name"];
-        if(move_uploaded_file($posterTmp, $posterPath)){
-            return $posterPath;
-        }else{
-            return false;
-        };
+
+        $image = new SimpleImage();
+        $image->load($posterTmp);
+        $image->resize(200, 300);
+        $image->save($posterPath);
+        return $posterPath;
     }
 }
