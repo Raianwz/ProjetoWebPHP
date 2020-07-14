@@ -27,6 +27,7 @@ $filmes = $controller->index();
     </nav>
     <div class="container">
     <div class="row">
+    <?php if(!$filmes) echo "<p class='card-panel red lighten-4'>Nenhum filme cadastrado </p>" ?>
         <!-- Coluna Geral -->
         <?php foreach($filmes as $filme) :  ?>
             <div class="col s12 m6 l3">
