@@ -39,7 +39,7 @@ class FilmesController{
 
         $image = new SimpleImage();
         $image->load($posterTmp);
-        $image->resize(200, 300);
+        $image->resize(200 , 300);
         $image->save($posterPath);
         return $posterPath;
 
@@ -48,6 +48,12 @@ class FilmesController{
     public function favorite(int $id){
         $filmesRepository = new FilmesRepositoryPDO();
         $result = ['success' => $filmesRepository->favoritar($id)];
+        header('Content-type: application/json');
+        echo json_encode($result);
+    }
+    public function delete(int $id){
+        $filmesRepository = new FilmesRepositoryPDO();
+        $result = ['success' => $filmesRepository->delete($id)];
         header('Content-type: application/json');
         echo json_encode($result);
     }
